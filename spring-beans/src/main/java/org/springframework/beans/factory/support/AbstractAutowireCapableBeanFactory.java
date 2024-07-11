@@ -1688,7 +1688,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 		// 给任何实现了InstantiationAwareBeanPostProcessors的子类机会去修改bean的状态再设置属性之前，可以被用来支持类型的字段注入
 
 		// 否是"synthetic"。一般是指只有AOP相关的pointCut配置或者Advice配置才会将 synthetic设置为true
-		// 如果mdb是不是'syntheic'且工厂拥有InstantiationAwareBeanPostProcessor
+		// 如果mdb是不是'syntheic'且工厂拥有InstantiationAwareBeanPostProcessor :创建代理对象，实现InstantiationAwareBeanPostProcessor
 		if (!mbd.isSynthetic() && hasInstantiationAwareBeanPostProcessors()) {
 			//遍历工厂中的BeanPostProcessor对象
 			for (BeanPostProcessor bp : getBeanPostProcessors()) {
