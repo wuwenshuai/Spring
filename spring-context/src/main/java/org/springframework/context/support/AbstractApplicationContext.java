@@ -597,7 +597,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 				initApplicationEventMulticaster();
 
 				// Initialize other special beans in specific context subclasses.
-				// 留给子类来初始化其他的bean
+				// 留给子类来初始化其他的bean,sringboot 会实现
 				onRefresh();
 
 				// Check for listener beans and register them.
@@ -663,7 +663,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 		}
 
 		// Initialize any placeholder property sources in the context environment.
-		// 留给子类覆盖，初始化属性资源
+		// 留给子类覆盖，初始化属性资源，springmvc‘会实现
 		initPropertySources();
 
 		// Validate that all properties marked as required are resolvable:
@@ -720,7 +720,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 		// Tell the internal bean factory to use the context's class loader etc.
 		// 设置beanFactory的classloader为当前context的classloader
 		beanFactory.setBeanClassLoader(getClassLoader());
-		// 设置beanfactory的表达式语言处理器
+		// 设置beanfactory的表达式语言处理器 SPELx
 		beanFactory.setBeanExpressionResolver(new StandardBeanExpressionResolver(beanFactory.getBeanClassLoader()));
 		// 为beanFactory增加一个默认的propertyEditor，这个主要是对bean的属性等设置管理的一个工具类
 		beanFactory.addPropertyEditorRegistrar(new ResourceEditorRegistrar(this, getEnvironment()));

@@ -366,7 +366,7 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
 					this.suppressedExceptions = new LinkedHashSet<>();
 				}
 				try {
-					// 从单例工厂中获取对象
+					// 从单例工厂中获取对象,调用getObject 的时候，其实是调用了 getSingleton(beanName, () -> {}里面的匿名内部类
 					singletonObject = singletonFactory.getObject();
 					// 生成了新的单例对象的标记为true，表示生成了新的单例对象
 					newSingleton = true;
